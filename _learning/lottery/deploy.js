@@ -6,7 +6,7 @@ const {abi, evm} = require('./compile');
 // an acc unlock and endpoint for node
 const provider = new HDWalletProvider(
     'trip kiss execute pulp cradle gentle brass plate taxi quote memory science',
-    'https://rinkeby.infura.io/v3/fa534cb3e92c4e25b370d752bcbe3f45'
+    'wss://rinkeby.infura.io/ws/v3/fa534cb3e92c4e25b370d752bcbe3f45'
 );
 
 const web3 = new Web3(provider);
@@ -20,6 +20,7 @@ const deploy = async () => {
     .deploy({data: evm.bytecode.object})
     .send({from: accounts[0], gas: '1000000'});
 
+    console.log(JSON.stringify(abi));
     console.log(result.options.address);
 }
 
